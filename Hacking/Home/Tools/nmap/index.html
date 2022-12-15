@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="https://www.eltiempo.com/files/image_640_428/uploads/2017/06/27/595317e8f0820.jpeg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="&copy; Aaron Developer & Tester &trade;"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <meta property="og:image" content="https://wallsbazar.com/wp-content/uploads/2021/08/Hackers-Wallpaper.jpeg" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.scss">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Nmap Comandosout </title>
+</head>
+<body>
+
+
+
+
+    <ul class="accordion-list">
+
+
+        <li>
+          <h3>TÉCNICAS BÁSICAS DE SCANEO:</h3>
+          <div class="answer">
+
+          
+         <p>
+            Escanear un solo objetivo - nmap [target] <br><br>
+            Escanear múltiples objetivos - nmap [target1,target2,etc] <br><br>
+            Escanear una lista de objetivos - nmap -iL [list.txt] <br><br>
+            Escanear un rango de hosts - nmap [range of IP addresses] <br><br>
+            Escanear una subred completa - nmap [IP address/cdir] <br><br>
+            Explorar hosts aleatorios - nmap -iR [number] <br><br>
+            Excluyendo los objetivos de un scan - nmap [targets] –exclude [targets] <br><br>
+            Excluyendo los objetivos mediante una lista - nmap [targets] –excludefile [list.txt] <br><br>
+            Realizar una exploración agresiva - nmap -A [target] <br><br>
+            Escanear un objetivo IPv6 - nmap -6 [target]
+        
+        
+        </p>
+      
+            
+            
+              
+          </div>
+        </li>
+
+
+        <li>
+          <h3>EVASIÓN DE FIREWALL:</h3>
+          <div class="answer">
+           <p>
+
+            Fragmentar paquetes - nmap -f [target] <br><br>
+            Especifique un MTU específico - nmap –mtu [MTU]  [target] <br><br>
+            Utilice un señuelo - nmap -D RND: [number] [target] <br><br>
+            Exploración zombie inactivo - nmap -sI [zombie] [target] <br><br>
+            Especifique manualmente un puerto de origen - nmap –source-port [port] [target] <br><br>
+            Anexar datos aleatorios - nmap –data-length [size] [target] <br><br>
+            Selección aleatoria de orden objetivo del análisis - nmap –randomize-hosts [target] <br><br>
+            Spoof MAC Address - nmap –spoof-mac [MAC|0|vendor] [target] <br><br>
+            Enviar sumas de comprobación incorrectas - nmap –badsum [target] <br><br>
+        
+        
+        </p>
+                
+                </div>
+        </li>
+        
+        <li>
+            <h3>NMAP SCRIPTING ENGINE:</h3>
+            <div class="answer">
+           <p>
+            Ejecutar secuencias de comandos individuales - nmap –script [script.nse] [target] <br><br>
+            Ejecutar múltiples scripts - nmap –script [expression] [target] <br><br>
+            Categorías Script - all, auth, default, discovery, external, intrusive, malware, safe, vuln <br><br>
+            Ejecutar scripts por categorías - nmap –script [category] [target] <br><br>
+            Ejecutar secuencias de comandos de múltiples categorías - nmap –script [category1,category2, etc] <br><br>
+            Solucionar problemas de scripts - nmap –script [script] –script-trace [target] <br><br>
+            Actualización de la base de datos de secuencia de comandos - nmap –script-updatedb <br><br>
+        </p>
+  
+          </div>
+          </li>
+            
+
+
+          <li>
+            <h3>Saber cuantos equipos Windows y Linux hay en una red</h3>
+            <div class="answer">
+           <p>nmap -F -O 192.168.23.1-255 | grep "Running: " > /tmp/os; echo "$(cat /tmp/os | grep Linux | wc -l) Linux device(s)"; echo "$(cat /tmp/os | grep Windows | wc -l) Window(s) devices"</p>
+  
+          </div>
+          </li>
+            
+
+
+          <li>
+            <h3>Exploración agresiva de hosts, modo SIGILO</h3>
+            <div class="answer">
+           <p>Veamos en detalle que es el -T que viene a ser el nivel de agresión. <br> estas opciones son lo que le dice a la rapidez con nmap para llevar a cabo la exploración. La velocidad varía de 0 a 5  <br><br>
+            -T0: Muy lento – No recomendable <br>
+            -T1: Útil para evasión de IDS – Lento <br>
+            -T2: No interfiere con el objetivo- Lento pero recomendable <br>
+            -T3: Escaneo por defecto <br>
+            -T4: Escaneo rápido y agresivo – No recomendable <br>
+            -T5: Escaneo muy rápido y muy agresivo – No recomendable</p>
+  
+          </div>
+          </li>
+
+          <li>
+            <h3>Comandos Interesantes</h3>
+            <div class="answer">
+           <p>Utilizar señuelos <br><br>
+            Esta opción es para evitar que un IDS nos detecte, así que creamos varios señuelos para que no sepan cual es la ip atacante 
+            y tal vez hasta podemos confundir un firewall mal configurado.
+            <br><br>
+            nmap -n -D 192.168.23.5,10.5.23.2,172.1.23.4,3.4.23.1 IP_Objetivo
+            <br><br>
+            Intentar Bypasear el firewall con un script
+            
+            nmap -sS -T5 192.168.23.131 --script firewall-bypass
+            <br><br>
+            Lanzar un ataque de DOS
+            
+            Primero verificamos si el objetivo es vulnerable
+            <br><br>
+            nmap --script dos -Pn IP_Objetivo
+            <br><br>
+            Y ahora en mi ejemplo el objetivo era vulnerable a slowloris. El ataque sería: <br><br>
+            
+            nmap IP_Objetivo -max-parallelism 800 -Pn --script http-slowloris --script-args http-slowloris.runforever=true
+            
+            </p>
+  
+          </div>
+          </li>
+
+          <li>
+            <h3>
+             
+                Comando para detectar un servidor de seguridad HTTP-WAF-DECT</h3>
+            <div class="answer">
+                <p>El script http-waf-detect está diseñado para ayudarnos a conocer la presencia de un servidor de seguridad de aplicaciones web. Se sondeará el servidor web de destino con varias solicitudes. Primero, enviará una solicitud web normal y registrará la respuesta del servidor. Luego, enviará otra solicitud con una carga útil (URL con formato incorrecto) y comparará las respuestas. Este método de detección de WAF está lejos de ser perfecto y puede variar según el tipo de servidor web y producto de WAF.</p>
+           <p>nmap -p80,443 --script http-waf-detect --script-args="http-waf-detect.aggro,http-waf-detect.detectBodyChanges" poner objectivo atacar</p>
+  
+          </div>
+          </li>
+
+          <li>
+            <h3>Web Application Firewall Fingerprint Detection</h3>
+            <div class="answer">
+           <p>Aprender qué WAF está en uso puede ser importante ya que cada WAF tiene sus propios métodos predefinidos de limitación de velocidad y detección. Identificar el tipo de WAF puede ayudar a los pentesteres a evitar la detección (o permanecer bajo el radar) si podemos aprender de manera preventiva las limitaciones de WAF y los detectores de detección.
+
+            El script http-waf-fingerprint Nmap está diseñado para ayudarnos a conocer el firewall de la aplicación web exacta que se usa en un servidor web de destino. También intentará identificar su tipo y número de versión exacto.
+            
+            En su forma más simple, no necesitamos incluir ningún –script-args para que este script Nmap funcione.</p>
+
+            <p>nmap -p80,443 --script http-waf-fingerprint Website.com</p>
+  
+          </div>
+          </li>
+
+          <li>
+            <h3>Find HTTP Errors</h3>
+            <div class="answer">
+           <p>Los códigos de estado HTTP se dividen en varias categorías o «clases». El primer dígito define las categorías y los siguientes dígitos son subcategorías, específicas para diferentes tipos de mensajes de error
+            <br><br>
+            1xx (informativo): se recibió la solicitud, proceso continuo.  <br>
+            2xx (exitoso): la solicitud fue recibida, entendida y aceptada con éxito. <br>
+            3xx (Redirección): se deben tomar medidas adicionales para completar la solicitud. <br>
+            4xx (Error de cliente): la solicitud contiene una sintaxis incorrecta o no se puede cumplir. <br>
+            5xx (Error del servidor): el servidor no pudo completar una solicitud aparentemente válida 
+            <br><br>
+            Comando : <br><br>
+            nmap -p80,443 --script http-errors Website.com
+
+            <br><br>
+            A continuación se muestra un comando más refinado que incluye varios argumentos de script. <br><br>
+
+            Comando : <br><br>
+
+            nmap -vv -p80,443 --script http-errors --script-args "httpspider.url=/docs/,httpspider.maxpagecount=3,httpspider.maxdepth=1" Website.com
+        </p>
+  
+          </div>
+          </li>
+
+         <!--
+
+             <li>
+            <h3>NMAP SCRIPTING ENGINE:</h3>
+            <div class="answer">
+           <p></p>
+  
+          </div>
+          </li>
+
+        -->
+            
+        
+      </ul>
+      
+
+      <script src="js.js"></script>
+      
+</body>
+</html>

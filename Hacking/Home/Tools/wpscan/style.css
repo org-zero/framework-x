@@ -1,0 +1,60 @@
+body {
+    background: rgb(16, 15, 15);
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+  }
+  
+  .terminal-window {
+    text-align: left;
+    width: 95%;
+    height: 360px;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+    box-shadow: 0 0 5px 1px rgb(0, 0, 0);
+    margin: 0 auto;
+    margin-top: 24px;
+  }
+  
+  .terminal-header {
+    background: #1d1d1d;
+    height: 30px;
+    border-radius: 8px 8px 0 0;
+    padding-left: 10px;
+  }
+  
+  .terminal-button {
+    width: 12px;
+    height: 12px;
+    margin: 10px 4px 0 0;
+    display: inline-block;
+    border-radius: 50%;
+  }
+  
+  .green {
+    background: #3bb662;
+  }
+  
+  .yellow {
+    background: #e5c30f;
+  }
+  
+  .red {
+    background: #e75448;
+  }
+  
+  .terminal-body {
+    color: rgb(118, 237, 71);
+    font-family: Menlo, Monaco, "Consolas", monospace, "Courier New", "Courier";
+    font-size: 11pt;
+    background: #000000;
+    opacity: 0.9;
+    padding: 10px;
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    top: 30px;
+    bottom: 0;
+    overflow: auto;
+  }
+  

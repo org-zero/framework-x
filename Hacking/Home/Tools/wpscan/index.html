@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>wpscan</title>
+</head>
+<body>
+    <div class="terminal-window">
+        <div class="terminal-header">
+          <div class="terminal-button green"></div>
+          <div class="terminal-button yellow"></div>
+          <div class="terminal-button red"></div>
+        </div>
+        <div class="terminal-body">
+          <span class="prompt"> <br>
+            $ wpscan --url http://tudominio.com --enumerate p ( Buscar todos los plugins )
+            <br><br>
+            $ wpscan --url http://tudominio.com --enumerate vp ( Buscar plugins vulnerable )
+            <br><br>
+            $ wpscan --url http://tudominio.com --enumerate t ( Buscar themes )
+            <br><br>
+            $ wpscan --url http://tudominio.com --enumerate vt ( Buscar themes vulnerables )
+            <br><br>
+            $ wpscan --url http://tudominio.com --enumerate u ( Buscar usuarios )
+            <br><br>
+            $ wpscan --url http://tudominio.com --enumerate tt ( Buscar archivos timthumb )
+
+          </span>
+        </div>
+      </div>
+
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <div class="terminal-button green"></div>
+          <div class="terminal-button yellow"></div>
+          <div class="terminal-button red"></div>
+        </div>
+        <div class="terminal-body">
+          <span class="prompt">
+        <br>
+            $ podemos obtener más información mediante la clásica opción verbose, con el siguiente comando:
+            <br><br>
+
+          </span>
+          wpscan --url www.example.com --verbose
+          <br><br>
+          wpscan --url www.example.com -v
+          
+          <br><br>
+          $ Entre todas las opciones disponibles, vamos a indicar algunas muy útiles para detectar información sensible del portal. Por ejemplo, podemos realizar un ataque por diccionario con el que buscar ciertos strings concretos que queramos:
+          <br><br>
+          wpscan --url www.example.com --wordlist wordlist.txt --threads 30
+          <br><br>
+          $ también podemos especificar el número de hilos a utilizar en el escaneo.
+          
+          Podemos realizar un ataque de diccionario contra el login de un usuario concreto:
+          <br><br>
+          wpscan --url www.example.com --wordlist wordlist.txt --username admin
+        </div>
+      </div>
+      
+      
+</body>
+</html>
